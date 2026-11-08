@@ -10,8 +10,6 @@ build/
 dist/
 *.egg-info/
 .eggs/
-pip-log.txt
-pip-delete-this-directory.txt
 
 # ============================================================
 # Virtual environments
@@ -23,27 +21,21 @@ ENV/
 .python-version
 
 # ============================================================
-# Jupyter / jupytext
+# Jupyter
 # ============================================================
-# The .py files with # %% cells are the source of truth.
-# Any generated .ipynb is a build artifact of `jupytext --to ipynb`.
+# .ipynb is the source of truth and IS committed (see README).
+# Only throwaway checkpoints are ignored.
 .ipynb_checkpoints/
-*.ipynb
-!notebooks/**/*.ipynb.bak   # keep jupytext backups if you use them
 
 # ============================================================
 # Data (regenerable / large — do not commit)
 # ============================================================
-# OULAD source CSVs — download from the OU repository (see README).
 data/raw/*
 !data/raw/.gitkeep
 
-# Engineered features — regenerate by running
-# notebooks/03_feature_engineering.py.
 data/processed/*
 !data/processed/.gitkeep
 
-# Never commit anything with these extensions anywhere in the tree.
 *.parquet
 *.feather
 *.pkl
@@ -59,7 +51,6 @@ data/processed/*
 # ============================================================
 models/
 runs/
-*.onnx
 mlruns/
 lightning_logs/
 
@@ -86,8 +77,6 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-
-# VSCode: ignore workspace files, but allow shared settings.
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
